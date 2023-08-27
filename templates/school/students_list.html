@@ -1,0 +1,19 @@
+{% load static %}
+
+{% block title %}Список учеников{% endblock %}
+{% block content %}
+<div class="row">
+  <ul>
+  {% for student in student_list %}
+    <li>
+      {{ student.name }} {{ student.group }}
+
+      Преподаватели:
+      {% for teacher in student.teachers.all %}
+        {{ teacher.name }} {{ teacher.subject }},
+      {% endfor %}
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}
